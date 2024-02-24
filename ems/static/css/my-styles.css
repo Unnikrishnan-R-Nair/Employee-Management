@@ -1,0 +1,197 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+
+* {
+    scroll-behavior: smooth;
+}
+
+img {
+    object-fit: cover;
+    
+}
+
+/* employee list */
+
+.emp-list {
+    font-family: 'Popins', sans-serif;
+}
+
+
+.emp-list .container .row .card img {
+    object-fit: cover;
+    
+}
+
+.emp-list .card {
+    position: relative;
+}
+
+.emp-list .status-span {
+    position: absolute !important;
+    top: 50%; left: 50%;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 50%;
+    transform: translate(-50%, -200%);
+    text-align: center;
+    font-weight: 600;
+    
+} 
+
+
+
+@media (max-width: 767px) {
+
+    
+    .emp-list .container .row div.col-12 {
+
+        justify-content: center;
+        align-items: center;
+          
+    }
+
+    .emp-list .container .row .card  {
+        min-width: 18rem;
+        margin: 0 auto;
+        width: 75%;
+        
+    }
+    
+}
+
+/* employee details */
+.emp-details {
+    font-family: 'Popins', sans-serif;
+    position: relative;
+}
+
+
+.emp-details .container {
+    margin-block: 50px;
+}
+
+.emp-details .row {
+
+    min-height: calc(100vh - 27vh);
+    
+}
+
+.emp-details .row {
+    gap: 40px;
+}
+
+.emp-details .col-lg-6 table tr{
+    line-height: 1.75;
+}
+
+.emp-details .date-details {
+    
+    min-width: 270px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+}
+
+.emp-details .date-details .date p {
+    color: rgba(0, 0, 0, 0.627); 
+}
+
+@media (max-width: 610px) {
+
+    .emp-details .date-details {
+        position: initial;
+    }
+}
+
+
+.emp-details .date-details .date {
+    margin-block: 5px;
+}
+
+.emp-details .date-details .date p {
+    font-size: 14px;
+    padding: 5px 0px;
+    margin-bottom: 0px;
+}
+
+.emp-details table td {
+    text-transform: capitalize;
+}
+
+.emp-details table td:last-child {
+    text-transform: none;
+}
+
+.emp-details .close-btn {
+    width: 35px;
+    font-size: 17px;
+}
+
+.emp-details .close-btn:hover {
+    background-color: gray;
+}
+
+/* employee add */
+
+.emp-add {
+    font-family: 'Popins', sans-serif;
+}
+
+.emp-add fieldset legend {
+    font-size: 16.5px;
+}
+
+.emp-add label:has(>input[type='radio']) {
+   margin-bottom: 10px; 
+   display: flex;
+}
+
+.emp-add #id_gender_0 {
+    
+    margin-inline-end: 5px;
+}
+
+.emp-add #id_gender_1 {
+    margin-inline-end: 5px;
+}
+
+.emp-add #id_status {
+    cursor: no-drop;
+    background-color: #eeeeee;
+    pointer-events: none;
+    
+}
+
+/* employee-update */
+
+.emp-update {
+    font-family: 'Popins', sans-serif;
+}
+
+
+.emp-update fieldset legend {
+    font-size: 16.5px;
+}
+
+.emp-update label:has(>input[type='radio']) {
+   margin-bottom: 10px; 
+   display: flex;
+}
+
+.emp-update #id_gender_0 {
+    
+    margin-inline-end: 5px;
+}
+
+.emp-update #id_gender_1 {
+    margin-inline-end: 5px;
+}
+
+.emp-update #id_emp_id {
+    background-color: #eee;
+    pointer-events: none;
+    cursor: none;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load tz %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../../../static/css/my-styles.css">
+</head>
+
+<body class="emp-details ">
+    <h2 class="text-center py-2 mb-2 bg-body-secondary text-primary-emphasis">Employee Detail</h2>
+    <div class="text-end "><a href="{% url 'employee-list' %}" class="btn btn-sm btn-secondary me-3 close-btn shadow-lg border rounded-5" title="Close detailed view">X</a></div>
+    <div class="container ">
+        <div class="row mx-auto">
+            <div class="col-lg-4 text-center">
+                <img class="rounded my-4" width="200px" height="210px" src="{{emp_data.image.url}}" alt="">
+            </div>
+            <div class="col-lg-6">
+                <div class="table-responsive-sm">
+                    <table class="table table-striped ">
+                        <tr>
+                            <th class="">Code / Emp ID:</th>
+                            <td>{{emp_data.emp_id}}</td>
+                        </tr>
+                        <tr>
+                            <th class="">Name:</th>
+                            <td>{{emp_data.first_name|capfirst}} {{emp_data.last_name|capfirst}}</td> 
+                        </tr>
+                        <tr>
+                            <th class="">Phone:</th>
+                            <td>{{emp_data.phone}}</td> 
+                        </tr>
+                        <tr>
+                            <th class="">Email:</th>
+                            <td>{{emp_data.email}}</td> 
+                        </tr>
+                        <tr>
+                            <th class="">Address:</th>
+                            <td>{{emp_data.address}}</td> 
+                        </tr>
+                        <tr>
+                            <th class="">Gender:</th>
+                            <td>{{emp_data.gender}}</td> 
+                        </tr>
+                        <tr>
+                            <th class="">Date of birth:</th>
+                            <td>{{emp_data.dob}}</td> 
+                        </tr>
+                        <tr>
+                            <th class="">Date hired:</th>
+                            <td>{{emp_data.date_hired}}</td> 
+                        </tr>
+                        <tr>
+                            <th class="">Status:</th>
+                            <td class='status-data'>
+                                {% if emp_data.status == 'Active' %}
+                                <span class="text-success border border-success rounded text-center fw-bold py-1 px-3">Active</span>
+                                {% else %}
+                                <span class="text-danger border border-danger rounded text-center fw-bold p-1 px-3">Inactive</span>
+                                {% endif %}
+                            </td> 
+                        </tr>
+    
+                        <tr>
+                            <th class="">Department:</th>
+                            <td>{{emp_data.department}}</td> 
+                        </tr>
+                        <tr>
+                            <th class="">Position:</th>
+                            <td>{{emp_data.position}}</td> 
+                        </tr>
+                        <tr>
+                            <th class="salary">Current salary:</th>
+                            <td class="salary-data">Rs. {{emp_data.salary }} <span>per month</span></td> 
+                        </tr>
+    
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="date-details d-flex justify-content-between flex-column flex-sm-row align-items-center flex-nowrap bg-body-secondary">
+        
+        <div class="date d-md-inline-block">
+            <p class="d-sm-inline ms-sm-0 ms-md-2 ">Date added : </p>
+            <p class="d-sm-inline text-primary-emphasis">{{emp_data.date_added|timezone:"Asia/Kolkata"}}</p>
+        </div>
+
+        <div class="date d-md-inline-block">
+            <p class="d-sm-inline ">Date modified : </p>
+            <p class="d-sm-inline me-sm-0 me-md-2 text-primary-emphasis">{{emp_data.date_updated|timezone:"Asia/Kolkata"}}</p>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        if (document.querySelector('table tr td.status-data span').innerHTML == 'Inactive' ) {
+            document.querySelector('table tr th.salary').innerHTML = 'Salary';
+            document.querySelector('table tr td.salary-data span').innerHTML = "";
+        }   
+    </script>
+
+</body>
+</html>
