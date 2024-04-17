@@ -6,7 +6,7 @@ urlpatterns = [
     
     # path('employees/all/', views.employees_list_view, name='employees-list'),
 
-    path('employees/all/', views.EmployeeListView.as_view(), name='employee-list'),
+    path('', views.EmployeeListView.as_view(), name='employee-list'),
 
     path('employees/add/', views.EmployeeCreateView.as_view(), name='employee-add'),
 
